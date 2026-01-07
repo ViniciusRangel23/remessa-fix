@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Planilhas para Remessa</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.sheetjs.com/xlsx-0.18.5/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <h1 class="title">Converter as planilhas para o Remessa</h1>
+
+    <main class="container">
+
+        <div id="uploader" class="uploader" tabindex="0" role="button" aria-label="Arraste planilhas aqui ou clique para procurar">
+            <input id="fileInput" type="file" accept=".xls,.xlsx,.csv" multiple aria-hidden="true">
+            <div class="uploader-content">
+                <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 8l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="3" y="15" width="18" height="6" rx="2" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <p class="uploader-text">Arraste a planilha ou <button id="browseBtn" class="browse-button" type="button">Procure no computador</button></p>
+            </div>
+        </div>
+
+        <section id="gallery" class="gallery" aria-live="polite" aria-label="Arquivos carregados"></section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
