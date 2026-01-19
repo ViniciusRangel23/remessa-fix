@@ -2,10 +2,10 @@
     'use strict';
     
     // Conversor de planilhas (XLS/XLSX/CSV) para uso em remessa:
-    // formata K/L/M com 4 casas decimais (vírgula) e força texto.
+    // formata K/L/M/S/T/U com 4 casas decimais (vírgula) e força texto.
     const CONFIG = {
         allowedExtensions: ['.xls', '.xlsx', '.csv'],
-        targetColumns: [10, 11, 12], // K, L, M
+        targetColumns: [10, 11, 12, 18, 19, 20], // K, L, M, S, T, U
         maxColumnWidth: 30,
         minColumnWidth: 8,
         decimalPlaces: 4
@@ -229,13 +229,13 @@
         });
     }
 
-    // Converte células para texto e formata K/L/M
+    // Converte células para texto e formata K/L/M/S/T/U
     function processWorksheet(worksheet) {
         if (!worksheet['!ref']) return; // Planilha vazia
         
         const maxLengths = {};
 
-        // Converte todas as células; K/L/M recebem 4 casas decimais
+        // Converte todas as células; K/L/M/S/T/U recebem 4 casas decimais
         Object.keys(worksheet).forEach(key => {
             if (key.startsWith('!')) return; // Ignorar metadados
 
@@ -258,7 +258,7 @@
         adjustColumnWidths(worksheet, maxLengths);
     }
 
-    // Formata valor da célula: K/L/M com 4 casas (vírgula); demais como texto
+    // Formata valor da célula: K/L/M/S/T/U com 4 casas (vírgula); demais como texto
     function formatCellValue(value, columnIndex) {
         const stringValue = String(value).trim();
         
